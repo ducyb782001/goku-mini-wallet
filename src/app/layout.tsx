@@ -3,6 +3,7 @@ import ClientProviders from "@/providers";
 
 // CSS Styles
 import "../style/globals.css";
+import "../style/table.css";
 import "react-toastify/dist/ReactToastify.css";
 import "@reach/dialog/styles.css";
 
