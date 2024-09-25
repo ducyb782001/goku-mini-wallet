@@ -1,9 +1,17 @@
 "use client";
 
+import WebApp from "@twa-dev/sdk";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function Home() {
   const router = useRouter();
+
+  useEffect(() => {
+    if (typeof window !== undefined) {
+      WebApp.ready();
+    }
+  }, []);
 
   return (
     <div className="p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
