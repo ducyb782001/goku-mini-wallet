@@ -3,10 +3,8 @@ import { AuthProvider } from "@/context/AuthContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ToastContainer } from "react-toastify";
 
-// Create a react query client
 const queryClient = new QueryClient({
   defaultOptions: {
-    // react query stop refetch when switch browser tabs
     queries: {
       refetchOnWindowFocus: false,
     },
@@ -15,9 +13,9 @@ const queryClient = new QueryClient({
 
 export default function ClientProviders({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <>
       <ToastContainer

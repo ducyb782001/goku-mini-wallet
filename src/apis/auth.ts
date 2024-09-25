@@ -8,9 +8,11 @@ import { postAPI } from "./axios-instance";
 //   return response?.data;
 // };
 
-export const loginAccount = (loginUrl: string, loginData: any) => {
-  return postAPI({
+export const loginAccount = async (loginUrl: string, loginData: any) => {
+  const response = await postAPI({
     url: loginUrl,
     data: loginData,
   });
+
+  return response;
 };
