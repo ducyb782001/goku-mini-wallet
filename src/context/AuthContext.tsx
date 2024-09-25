@@ -16,7 +16,11 @@ function AuthProvider({ children }: any) {
 
   const checkLogin = () => {
     const cookies = cookie.parse(window.document.cookie);
-    cookies?.token ? setIsLogin(true) : setIsLogin(false);
+    if (cookies?.token) {
+      setIsLogin(true);
+    } else {
+      setIsLogin(false);
+    }
   };
 
   useEffect(() => {
