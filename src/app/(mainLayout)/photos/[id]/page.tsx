@@ -1,5 +1,13 @@
+import HomePage from "@/components/HomePage/HomePage";
+import RetrieveBalance from "@/components/HomePage/RetrieveBalance";
 import PhotoDetail from "@/components/PhotoDetail";
 
 export default function page() {
-  return <PhotoDetail />;
+  return (
+    <div>
+      {/* <PhotoDetail /> */}
+      <HomePage />
+      <RetrieveBalance/>
+    </div>
+  );
 }

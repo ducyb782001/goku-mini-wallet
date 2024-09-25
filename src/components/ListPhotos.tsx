@@ -9,6 +9,7 @@ import { useAuthContext } from "@/context/AuthContext";
 import { loginUrl } from "@/constants/const/api-url.const";
 import { toast } from "react-toastify";
 import { loginAccount } from "@/apis/auth";
+import { useRouter } from "next/navigation";
 
 function ListPhotos() {
   const { isLogin, checkLogin } = useAuthContext();
@@ -16,6 +17,7 @@ function ListPhotos() {
   const [tokenValue, setTokenValue] = useState<string>("");
   const [userEmail, setUserEmail] = useState<string>("");
   const [userPassword, setUserPassword] = useState<string>("");
+  const router = useRouter();
 
   useQuery(
     ["getListPhoto", isLogin],
@@ -125,8 +127,16 @@ function ListPhotos() {
           </div>
         ))}
       </div>
-      <button onClick={handleLogout} className="bg-blue-400">
+      {/* <button onClick={handleLogout} className="bg-blue-400">
         Logout
+      </button> */}
+      <button
+        onClick={() => {
+          router.push("/photos/1");
+        }}
+        className="bg-blue-400 mt-5"
+      >
+        Photo 1
       </button>
     </div>
   );
