@@ -11,8 +11,6 @@ export const nodesByChainId = {
 export const getRpcProviderByChainId = (chainId: number) =>
   chainId && new ethers.providers.JsonRpcProvider(nodesByChainId[chainId]);
 
-const RPC_URL =
-  "https://sepolia-rollup.arbitrum.io/rpc" ||
-  "https://rpcv2-testnet.ancient8.gg";
+const RPC_URL = "https://rpcv2-testnet.ancient8.gg";
 
 export const ETHER_PROVIDER = new ethers.providers.JsonRpcProvider(RPC_URL);

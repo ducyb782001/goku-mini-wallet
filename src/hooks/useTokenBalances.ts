@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import { ethers } from "ethers";
-import ERC20_ABI from "../../abis/erc20.json";
 import { ETHER_PROVIDER, getRpcProviderByChainId } from "@/lib/provider";
 import { getErc20Contract } from "@/lib/contract-accessor";
 import { pow10 } from "@/lib/math";

@@ -71,14 +71,6 @@ function ListPhotos() {
     });
   };
 
-  const handleLogout = () => {
-    window.document.cookie = cookie.serialize("token", "", {
-      maxAge: -1, // Expire the cookie immediately.
-      path: "/",
-    });
-    checkLogin();
-  };
-
   return (
     <div>
       <div>Fake Login</div>
@@ -127,9 +119,6 @@ function ListPhotos() {
           </div>
         ))}
       </div>
-      {/* <button onClick={handleLogout} className="bg-blue-400">
-        Logout
-      </button> */}
       <button
         onClick={() => {
           router.push("/photos/1");

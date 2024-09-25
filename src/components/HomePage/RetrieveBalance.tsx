@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React from "react";
 import { useTokenBalances } from "@/hooks/useTokenBalances";
 
 function RetrieveBalance() {
