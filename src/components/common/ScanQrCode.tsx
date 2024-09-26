@@ -16,6 +16,7 @@ function ScanQrCode({
   const videoRef = useRef(null);
   const [isScanning, setIsScanning] = useState(false);
   const [scanError, setScanError] = useState<any>(null);
+  console.log("🚀 ~ scanError:", scanError);
 
   useEffect(() => {
     let scanner;

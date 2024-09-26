@@ -10,6 +10,10 @@ const SEED_PHRASE =
 
 function HomePage() {
   const [toContractAddressInput, setToContractAddressInput] = useState("");
+  console.log(
+    "🚀 ~ HomePage ~ toContractAddressInput:",
+    toContractAddressInput
+  );
   const [isOpenScanQrCode, setIsOpenScanQrCode] = useState(false);
   const [showModalTest, setShowModalTest] = useState(false);
 
