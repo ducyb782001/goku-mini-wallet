@@ -9,7 +9,7 @@ import { useAuthContext } from "@/context/AuthContext";
 import { loginUrl } from "@/constants/const/api-url.const";
 import { toast } from "react-toastify";
 import { loginAccount } from "@/apis/auth";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next-nprogress-bar";
 
 function ListPhotos() {
   const { isLogin, checkLogin } = useAuthContext();
@@ -82,7 +82,7 @@ function ListPhotos() {
           value={tokenValue}
           className="border"
         />
-        <button onClick={handleSetToken} className="bg-blue-400">
+        <button onClick={handleSetToken} className="bg-blue">
           Set
         </button>
       </div>
@@ -104,7 +104,7 @@ function ListPhotos() {
           placeholder="Password"
           className="border"
         />
-        <button onClick={handleLogin} className="bg-blue-400">
+        <button onClick={handleLogin} className="bg-blue">
           Login
         </button>
       </div>
@@ -123,7 +123,7 @@ function ListPhotos() {
         onClick={() => {
           router.push("/photos/1");
         }}
-        className="bg-blue-400 mt-5"
+        className="bg-blue mt-5"
       >
         Photo 1
       </button>
