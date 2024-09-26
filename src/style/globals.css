@@ -25,3 +25,87 @@ body {
     text-wrap: balance;
   }
 }
+
+.smooth-transform {
+  transition: all 0.2s ease;
+}
+
+.uppercase-first-char::first-letter {
+  text-transform: capitalize;
+}
+
+/* hide arrows when set input type="number" */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+[data-reach-dialog-content] {
+  width: 50vw;
+  margin: 10vh auto;
+  background: white;
+  padding: 0;
+  outline: none;
+}
+/* end css input */
+
+/* change input text color and background color when auto fill */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--auto-complete-input-color);
+  box-shadow: 0 0 0px 1000px #00000000 inset;
+  -webkit-box-shadow: 0 0 0px 1000px #00000000 inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+/* end */
+
+/* Can scroll but don't see scroll bar */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+/* end */
+
+/* hide input default  */
+.input-img input {
+  opacity: 0;
+  visibility: hidden;
+  width: 100%;
+  display: none;
+}
+/* end */
+
+/* hide arrows when set input type="number" */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+/* end css input */
+
+/* reach dialog content */
+[data-reach-dialog-content] {
+  width: 50vw;
+  margin: 10vh auto;
+  background: white;
+  padding: 0;
+  outline: none;
+}
+/* end */

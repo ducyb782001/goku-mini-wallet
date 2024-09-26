@@ -4,9 +4,11 @@ import { getListCollections } from "@/apis/photos-module";
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import React, { useState } from "react";
+import { useRouter } from "next-nprogress-bar";
 
 function ListPhotos() {
   const [listPhotos, setListPhotos] = useState<any>();
+  const router = useRouter();
 
   useQuery(["getListPhoto"], async () => {
     const response = await getListCollections();

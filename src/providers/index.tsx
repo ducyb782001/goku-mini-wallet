@@ -2,6 +2,7 @@
 import { AuthProvider } from "@/context/AuthContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ToastContainer } from "react-toastify";
+import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -18,6 +19,12 @@ export default function ClientProviders({
 }>) {
   return (
     <>
+      <ProgressBar
+        height="2px"
+        color="#00ffff"
+        options={{ showSpinner: true }}
+        shallowRouting
+      />
       <ToastContainer
         position="bottom-right"
         autoClose={5000}
