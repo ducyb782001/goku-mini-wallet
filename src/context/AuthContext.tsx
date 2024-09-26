@@ -17,7 +17,9 @@ const AuthContext = createContext<ContextType>({
 function AuthProvider({ children }: Readonly<{ children: React.ReactNode }>) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const userData = WebApp?.initDataUnsafe;
+
   console.log("🚀 ~ AuthProvider ~ userData:", userData);
+
   const loginMutation = useMutation(
     async () => {
       return await loginAccount(loginUrl, {
