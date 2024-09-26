@@ -24,6 +24,7 @@ function TButton({
     primary:
       "py-3 px-4 w-full rounded-full text-secondary active:bg-primarySelected disabled:bg-primaryDisabled bg-primary hover:bg-primaryHover",
     secondary: `bg-[#011A28] bg-[#011A28] hover:bg-subBg active:bg-[#011a28] active:border-backTextOff p-3 rounded-xl`,
+    icon: "w-8 h-8 rounded-full bg-subBg hover:bg-backTextOff active:bg-subBg active:border-[#355061]",
   };
 
   return (
