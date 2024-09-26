@@ -6,6 +6,7 @@ export enum LineDirection {
 export enum ButtonType {
   PRIMARY = "primary",
   SECONDARY = "secondary",
+  ICON = "icon",
 }
 
 export enum ContentType {
