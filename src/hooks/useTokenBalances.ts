@@ -3,6 +3,7 @@ import { ETHER_PROVIDER, getRpcProviderByChainId } from "@/lib/provider";
 import { getErc20Contract } from "@/lib/contract-accessor";
 import { pow10 } from "@/lib/math";
 import BigNumber from "bignumber.js";
+import { isAddress } from "ethers/lib/utils";
 
 export const useTokenBalances = (
   account: string,
@@ -43,7 +44,7 @@ export const useTokenBalances = (
   };
 
   useEffect(() => {
-    if (account && tokenAddresses.length > 0) {
+    if (isAddress(account) && tokenAddresses.length > 0) {
       fetchBalances();
     }
   }, [account, tokenAddresses, chainId]);
