@@ -77,3 +77,12 @@ select:-webkit-autofill:focus {
   display: none;
 }
 /* end */
+
+/* hide input default  */
+.input-img input {
+  opacity: 0;
+  visibility: hidden;
+  width: 100%;
+  display: none;
+}
+/* end */

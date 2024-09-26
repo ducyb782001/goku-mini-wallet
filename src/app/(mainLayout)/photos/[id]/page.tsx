@@ -4,8 +4,8 @@ import RetrieveBalance from "@/components/HomePage/RetrieveBalance";
 export default function page() {
   return (
     <div>
-      <HomePage />
       <RetrieveBalance />
+      <HomePage />
     </div>
   );
 }
