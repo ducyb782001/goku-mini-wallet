@@ -48,7 +48,7 @@ function PrimaryInput({
           onChange={onChange}
           value={value}
           disabled={disabled}
-          className={`placeholder-gray w-full text-base md:text-[15px] md:leading-[20px] py-3 rounded-xl outline-none px-4 bg-secondBackground text-white border border-backTextOff focus:border-primary hover:border-primary smooth-transform read-only:bg-[#1A394C] read-only:hover:border-secondary read-only:focus:border-secondary  ${
+          className={`placeholder-gray w-full text-base md:text-[15px] md:leading-[20px] py-3 rounded-xl outline-none px-4 bg-secondBackground text-black border border-backTextOff focus:border-primary hover:border-primary smooth-transform read-only:bg-[#1A394C] read-only:hover:border-secondary read-only:focus:border-secondary  ${
             accessoriesLeft && "pl-12"
           } ${accessoriesRight && "pr-12"}
               ${classNameInput}`}
