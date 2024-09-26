@@ -1,7 +1,7 @@
 "use client";
 
 import WebApp from "@twa-dev/sdk";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next-nprogress-bar";
 import { useEffect } from "react";
 
 export default function Home() {
@@ -35,9 +35,9 @@ export default function Home() {
           </li>
           <li>Save and see your changes instantly.</li>
         </ol>
-        <button className="bg-blue-300">Init data</button>
+        <button className="bg-blue">Init data</button>
         <button
-          className="bg-blue-300"
+          className="bg-blue"
           onClick={() => {
             router.push("/photos");
           }}
