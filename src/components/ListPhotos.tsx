@@ -1,15 +1,21 @@
 "use client";
 
-import { getListCollections } from "@/apis/photos-module";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { getListCollections, getTodoDetail } from "@/apis/photos-module";
+import { useMutation, useQueries, useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import cookie from "cookie";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useAuthContext } from "@/context/AuthContext";
 import { loginUrl } from "@/constants/const/api-url.const";
 import { toast } from "react-toastify";
 import { loginAccount } from "@/apis/auth";
 import { useRouter } from "next-nprogress-bar";
+import AnimatedCounter from "./HomePage/AnimatedCounter";
+import BigNumber from "bignumber.js";
+
+const NUMBER_RATE = 1;
+const MAX_EARN = 5;
+const LAST_CLAIM_DATE = "Mon Sep 30 2024 6:36:00 GMT+0700 (Indochina Time)";
 
 function ListPhotos() {
   const { isLogin, checkLogin } = useAuthContext();
@@ -17,22 +23,39 @@ function ListPhotos() {
   const [tokenValue, setTokenValue] = useState<string>("");
   const [userEmail, setUserEmail] = useState<string>("");
   const [userPassword, setUserPassword] = useState<string>("");
+  const [userStatistic, setUserStatistic] = useState<any>();
   const router = useRouter();
 
-  useQuery(
-    ["getListPhoto", isLogin],
-    async () => {
-      const response = await getListCollections();
-      console.log("🚀 ~ response:", response);
-      setListPhotos(response);
-      return response;
-    },
-    { enabled: !!isLogin }
-  );
+  useQueries({
+    queries: [
+      {
+        queryKey: ["getListPhoto", isLogin],
+        queryFn: async () => {
+          const response = await getListCollections();
+          console.log("🚀 ~ response:", response);
+          setListPhotos(response);
+          return response;
+        },
+        enabled: !!isLogin,
+      },
+      {
+        queryKey: ["getTodoDetail"],
+        queryFn: async () => {
+          const response = await getTodoDetail();
+          if (response) {
+            setUserStatistic({
+              lastDate: LAST_CLAIM_DATE,
+              maxEarn: MAX_EARN,
+              numberRate: NUMBER_RATE,
+            });
+          }
+          return response;
+        },
+      },
+    ],
+  });
 
   const handleSetToken = () => {
-    // const cookieStore = cookies();
-    // cookieStore.set("token", tokenValue);
     window.document.cookie = cookie.serialize("token", tokenValue);
     checkLogin();
   };
@@ -71,8 +94,34 @@ function ListPhotos() {
     });
   };
 
+  const [currentPoint, setCurrentPoint] = useState<any>();
+
+  useEffect(() => {
+    if (userStatistic?.lastDate) {
+      const secondDifferent = Number(
+        (new Date().getTime() - new Date(userStatistic?.lastDate).getTime()) /
+          1000
+      ).toFixed();
+      const currentNumber = new BigNumber(userStatistic?.numberRate)
+        .dividedBy(3600)
+        .multipliedBy(secondDifferent)
+        .toFormat(4);
+      setCurrentPoint(currentNumber);
+    }
+  }, [userStatistic]);
+
   return (
     <div>
+      <h1>Animated Number</h1>
+      {currentPoint ? (
+        <AnimatedCounter
+          from={Number(currentPoint)}
+          to={userStatistic?.maxEarn}
+        />
+      ) : (
+        <div>Loading...</div>
+      )}
+
       <div>Fake Login</div>
       <div className="flex items-center gap-5">
         <input

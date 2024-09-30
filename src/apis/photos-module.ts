@@ -2,11 +2,11 @@
 import { collectionUrl, photoUrl } from "@/constants/const/api-url.const";
 import { getAPI } from "./axios-instance";
 
-// export const getListCollections = async () => {
-//   const axiosClient = axiosInstance();
-//   const response = await axiosClient.get(collectionUrl);
-//   return response?.data;
-// };
+export const getTodoDetail = () => {
+  return getAPI({
+    url: "https://dummyjson.com/todos/1",
+  });
+};
 
 export const getListCollections = () => {
   return getAPI({
