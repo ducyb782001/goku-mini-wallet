@@ -21,7 +21,6 @@ const setAuthorizationHeader = () => {
 export const getAPI = async ({ ...options }) => {
   setAuthorizationHeader();
   const onSuccess = (response: any) => {
-    console.log("🚀 ~ onSuccess ~ response:", response);
     return response?.data;
   };
   const onError = async (error: any) => {
