@@ -1,7 +1,7 @@
 "use client";
 
 import { getListCollections, getTodoDetail } from "@/apis/photos-module";
-import { useMutation, useQueries, useQuery } from "@tanstack/react-query";
+import { useMutation, useQueries } from "@tanstack/react-query";
 import Link from "next/link";
 import cookie from "cookie";
 import React, { useEffect, useState } from "react";
