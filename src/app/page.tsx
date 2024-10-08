@@ -7,15 +7,18 @@ export default function Home() {
   const [platForm, setPlatForm] = useState<any>();
   const [initData, setInitData] = useState<any>();
   const [initDataUnsafe, setInitDataUnsafe] = useState<any>();
+  console.log("🚀 ~ Home ~ initData:", initData);
 
   return (
     <div className="p-14">
       <button
         className="text-2xl font-bold bg-blue p-2 text-white rounded"
         onClick={() => {
-          setPlatForm(WebApp.platform);
-          setInitData(WebApp.initData);
-          setInitDataUnsafe(WebApp.initDataUnsafe);
+          if (typeof window !== undefined) {
+            setPlatForm(WebApp.platform);
+            setInitData(WebApp.initData);
+            setInitDataUnsafe(WebApp.initDataUnsafe);
+          }
         }}
       >
         Click to get init data
